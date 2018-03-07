@@ -9,7 +9,6 @@
   </ul>
 </nav>
 <div class="items-collection">
-  <ul *ngFor="let cry of cryptocurrency">
-    <li class="single-item" >{{cry.name}}</li>
-  </ul>
+  <div class="single-item" *ngFor="let cry of viewItems"><p>{{cry.name}}</p></div>
 </div>
+<button class = "laod-more-btn" (click) = "onAddMoreItems()">Load More</button>
