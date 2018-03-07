@@ -1,0 +1,35 @@
+nav {
+    border-bottom: 3px solid #003380;;
+}
+.navigation {
+    display: flex;
+    justify-content: flex-end;
+    height: 100px;
+    margin-right: 100px;
+}
+.navigation > li {
+    font-size: 24px;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+}
+.navigation > li > a {
+    display: block;
+    margin-top: 35px;
+}
+.navigation > li:hover {
+ color: #003380;
+ font-weight: bold;
+}
+.items-collection {
+    display: flex;
+    height:100%;
+    width: 100%;
+    border:1px solid red;
+}
+.single-item {
+    height: 100px;
+    weight:100px;
+    border: 1px solid blue;
+}
+

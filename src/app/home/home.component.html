@@ -1,0 +1,15 @@
+<nav>
+  <ul class="navigation">
+    <li>
+      <a>Book List</a>
+    </li>
+    <li>
+      <a>My Books</a>
+    </li>
+  </ul>
+</nav>
+<div class="items-collection">
+  <ul *ngFor="let cry of cryptocurrency">
+    <li class="single-item" >{{cry.name}}</li>
+  </ul>
+</div>

@@ -1,0 +1,38 @@
+.loggin-form {
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #003380;
+    height: 450px;
+    width: 350px;
+    border-radius: 30px;
+    box-shadow: 10px 10px #d9d9d9;
+}
+fieldset {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+.log-field {
+    font-size: 18px;
+    padding: 5px;
+    width: 200px;
+    height: 35px;
+    border: 3px solid #003380;
+    border-radius: 20px;
+}
+.log-label {
+    text-transform: lowercase;
+    margin: 10px 0;
+}
+.submit-button{
+    margin:40px 0 0 50px;
+    width: 140px;
+    height: 35px;
+    border: 3px solid #003380;
+    border-radius: 20px;
+
+
+}

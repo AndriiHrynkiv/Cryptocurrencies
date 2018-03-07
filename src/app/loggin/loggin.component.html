@@ -1,10 +1,15 @@
-<form>
-  <fieldset>
-    <label>Liggin Name</label>
-    <input type = "text">
-  </fieldset>
-  <fieldset>
-      <label>Password</label>
-      <input type = "text">
+<div class="loggin-form">
+  <form [formGroup]="myform" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <label class="log-label">Loggin Name</label>
+      <input type="text" class="log-field" formControlName="logginName">
     </fieldset>
-</form>
+    <fieldset>
+      <label class="log-label">Password</label>
+      <input type="password" class="log-field" formControlName="password">
+    </fieldset>
+
+    <button class="submit-button" type="submit" [routerLink] = "['/home']" >Submit</button>
+
+  </form>
+</div>

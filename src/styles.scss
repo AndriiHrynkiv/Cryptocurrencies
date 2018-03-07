@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+
+html {
+    font-family:'ProximaNova-Regular',Arial,Helvetica,sans-serif; 
+}
+
+body, ul, ol, li {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style-type: none;
+}
+input:focus, button:focus{
+    outline: none;
+}
+fieldset, input {
+    border: none;
+}
+
+body {
+    height: 100vh;
+}
+
+
