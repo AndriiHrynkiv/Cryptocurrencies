@@ -8,6 +8,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class cryptocurrencyServices {
   private _cryptocurrencyUrl = 'https://api.coinmarketcap.com/v1/ticker/';
+  cryptocurrencyId: string;
 
   constructor(private _http: HttpClient) { }
 
@@ -16,6 +17,11 @@ export class cryptocurrencyServices {
    return this._http.get(this._cryptocurrencyUrl)
               .catch(this.hendleError);
   }
+  getChosenCryptocurrencyItem (cryptocurrencyId) {
+    let cryptocurrencyItemUrl = this._cryptocurrencyUrl + cryptocurrencyId
+    return this._http.get(cryptocurrencyItemUrl)
+               .catch(this.hendleError);
+   }
 
   private  hendleError(err: HttpErrorResponse) {
     console.log(err.message);

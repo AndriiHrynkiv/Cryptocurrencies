@@ -1,0 +1,40 @@
+.items-collection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+}
+.single-item {
+    display: flex;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    margin: 30px 20px;
+    border: 2px solid #003380;
+    border-radius: 30px;
+}
+div.single-item > a {
+    text-align: center;
+    width: auto;
+    font-size: 36px;
+    margin: auto;
+    text-decoration: none;
+}
+.single-item:hover  {
+    background-color: 	#87CEFA;
+}
+.laod-more-btn {
+    position: fixed;
+    right:40px;
+    bottom:40px;
+    height: 50px;
+    width:200px;
+    font-size: 18px;
+    background-color: #fff;
+    border: 2px solid #003380;
+    border-radius: 30px;
+}
+.laod-more-btn:hover {
+    background-color: 	#87CEFA;
+   }
