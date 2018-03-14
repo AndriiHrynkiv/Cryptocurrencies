@@ -9,5 +9,11 @@ import { cryptocurrencyServices } from './services/cryptocurrency.service';
   providers: [cryptocurrencyServices]
 })
 export class AppComponent {
+  MyItems: Array<any>;
+  
+  ngOnInit(): void {
+    this.MyItems = [];
+    localStorage.setItem('my_currency', JSON.stringify(this.MyItems))
+  }
   title = 'app';
 }

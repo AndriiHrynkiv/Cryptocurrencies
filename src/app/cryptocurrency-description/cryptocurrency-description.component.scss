@@ -1,13 +1,18 @@
 table, th, tr, td {
-    border: 1px solid black;
+    border: 2px solid #003380;
 }
 h1 {
-    margin-left: 10%
+    margin-left: 10%;
+    color: #003380;
 }
 table{
     caption-side: top;
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     text-align: center;
+}
+th, td {
+    padding: 10px;
+    background-color: #b3d9ff;
 }

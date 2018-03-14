@@ -20,8 +20,6 @@ export class CryptocurrencyDescriptionComponent implements OnInit {
     this._cryptocurrencyServices.getChosenCryptocurrencyItem(cryptocurrencyName)
       .subscribe(data => {
         this.cryptocurrencyItem = data[0];
-        console.log( this.cryptocurrencyItem)
       });
   }
-
 }

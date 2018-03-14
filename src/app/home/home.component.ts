@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { CryptocurrencyListComponent } from '../cryptocurrency-list/cryptocurrency-list.component';
 
 
 
@@ -9,11 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
-
-  constructor() { }
+  
+  @ViewChild(CryptocurrencyListComponent) myCurrencyViewChild: CryptocurrencyListComponent;
+  
+  constructor() {}
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    console.log(this.myCurrencyViewChild);
+  }
 
 }
 

@@ -1,34 +1,28 @@
 <h1>Cryptocurrency: {{cryptocurrencyItem.name}}</h1>
 <table>
   <thead>
-    <tr rowspan="2">
-      <th>Symbol</th>
-      <th>Prise(USD)</th>
-      <th>Rank</th>
-      <th>
-        <table>
-        <tr>Changes (%)</tr>
-        <tr class="changes" colspan="3">
-          <th>for 1h</th>
-          <th>for 1 day</th>
-          <th> for 7 day</th>
-        </tr>
-        </table>>
-      </th>
+    <tr>
+      <th rowspan="2">Symbol</th>
+      <th rowspan="2">Prise(USD)</th>
+      <th rowspan="2">Rank</th>
+      <th colspan="3">Changes (%)</th>
+
     </tr>
+    <tr>
+      <th>for 1 hour</th>
+      <th>for 1 day</th>
+      <th>for 7 day</th>
+    </tr>
+
   </thead>
   <tbody>
     <tr>
       <td>{{cryptocurrencyItem.symbol}}</td>
       <td>{{cryptocurrencyItem.price_usd}}</td>
       <td>{{cryptocurrencyItem.rank}}</td>
-      <td>
-        <tr>
-          <td>{{cryptocurrencyItem.percent_change_1h}}</td>
-          <td>{{cryptocurrencyItem.percent_change_24h}}</td>
-          <td>{{cryptocurrencyItem.percent_change_7d}}</td>
-        </tr>
-      </td>
+      <td>{{cryptocurrencyItem.percent_change_1h}}</td>
+      <td>{{cryptocurrencyItem.percent_change_24h}}</td>
+      <td>{{cryptocurrencyItem.percent_change_7d}}</td>
     </tr>
   </tbody>
 </table>
