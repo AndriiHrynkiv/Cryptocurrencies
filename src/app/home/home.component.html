@@ -1,11 +1,16 @@
 <nav>
+  <h1>Cryptocurrencies</h1>
+
   <ul class="navigation">
     <li>
       <a [routerLink]="['cryptocurrency-list']">Currency List</a>
     </li>
     <li>
       <a [routerLink]="['my-cryptocurrency']">My currency</a>
-      <p>it is - {{myItemsAnount}}</p>
+
+    </li>
+    <li id="my-currency-amount">
+      <a [routerLink]="['my-cryptocurrency']">{{myItems.length}}</a>
     </li>
   </ul>
 </nav>

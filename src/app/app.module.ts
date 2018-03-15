@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LogginComponent } from './loggin/loggin.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule} from '@angular/common/http';
@@ -24,6 +24,7 @@ import { MyCryptocurrencyComponent } from './my-cryptocurrency/my-cryptocurrency
   imports: [
     ReactiveFormsModule,
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: 'loggin', component: LogginComponent},
       {

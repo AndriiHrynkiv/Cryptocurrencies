@@ -1,49 +1,54 @@
 .items-collection {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     width: 60%;
     margin: 0 auto;
 }
 .single-item {
     display: flex;
-    // align-items: center;
     flex-direction: column;
     height: 200px;
     width: 200px;
     margin: 30px 20px;
     border: 2px solid #003380;
-    border-radius: 30px;
 }
 div.single-item > a {
     text-align: center;
     width: auto;
     font-size: 36px;
-    margin: auto;
+    margin:0 auto;
     text-decoration: none;
+}
+div.single-item > p {
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 .single-item:hover  {
     background-color: 	#87CEFA;
 }
 .btn-select {
     border: 2px solid #003380;
-    border-radius: 20px;
-    margin:10px 0 0 10px;;
-    width: 40px;
-    height: 40px;
-    background: none;
+    border-radius: 30px;
+    margin: 10px auto;
+    width: 60px;
+    height: 60px;
+    background: url("bitcoin.jpg");
+    background-size: 100%;
 }
 .single-item > button:hover {
     background-color: #003380;
-    border: 3px solid #003380;
+    border: 4px solid #003380;
 }
 .selected-button {
-    background-color: #ff4d4d;
+    background-image: none;
+    background-color: red;
 }
 .laod-more-btn {
     position: fixed;
     right:40px;
-    bottom:40px;
+    top:140px;
     height: 50px;
     width:200px;
     font-size: 18px;
@@ -54,3 +59,18 @@ div.single-item > a {
 .laod-more-btn:hover {
     background-color: 	#87CEFA;
    }
+.filter {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    left:40px;
+    top:140px;
+    height: 50px;
+    width:280px;
+}
+.input-filter {
+    border: 2px solid #003380;
+    height: 30px;
+    font-size: 24px;
+    margin-left: 30px;
+}

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { cryptocurrencyServices } from './services/cryptocurrency.service';
+import { MyCurrencyListService } from './services/my-currency-list.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
-  providers: [cryptocurrencyServices]
+  providers: [cryptocurrencyServices, MyCurrencyListService]
 })
 export class AppComponent {
   MyItems: Array<any>;
