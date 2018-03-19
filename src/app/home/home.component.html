@@ -1,17 +1,19 @@
 <nav>
   <h1>Cryptocurrencies</h1>
-
   <ul class="navigation">
     <li>
       <a [routerLink]="['cryptocurrency-list']">Currency List</a>
     </li>
-    <li>
+    <!-- <li>
       <a [routerLink]="['my-cryptocurrency']">My currency</a>
-
+    </li> -->
+    <li>
+      <a [routerLink]="['my-cryptocurrency']">{{myItems.userName}}</a>
     </li>
     <li id="my-currency-amount">
-      <a [routerLink]="['my-cryptocurrency']">{{myItems.length}}</a>
+      <a [routerLink]="['my-cryptocurrency']">{{myItems.userList.length}}</a>
     </li>
   </ul>
+  <button (click)="logOut($event)">log Out</button>
 </nav>
 <router-outlet></router-outlet>

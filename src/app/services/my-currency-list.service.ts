@@ -5,12 +5,12 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class MyCurrencyListService {
 
 storageItems: Array<any> = JSON.parse(localStorage.getItem('my_currency'));
-private _myItems = new BehaviorSubject<any>(this.storageItems);
-curentList = this._myItems.asObservable();
+private _userData = new BehaviorSubject<any>(this.storageItems);
+currentUserData = this._userData.asObservable();
 
   constructor() { }
 
-  changeMyItemsList(itemsList: Array<any>) {
-    this._myItems.next(itemsList);
+  changeMyItemsList(myUserData: Array<any>) {
+    this._userData.next(myUserData);
   }
 }

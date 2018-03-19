@@ -1,9 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MyCurrencyListService } from '../services/my-currency-list.service';
-import { CryptocurrencyListComponent } from '../cryptocurrency-list/cryptocurrency-list.component';
-
-
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -11,20 +9,28 @@ import { CryptocurrencyListComponent } from '../cryptocurrency-list/cryptocurren
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  
-  @ViewChild(CryptocurrencyListComponent) myCurrencyViewChild: CryptocurrencyListComponent;
-  
 
-  myItems: Array<any>;
-  constructor(private _MyCurrencyListService: MyCurrencyListService) {}
+  myItems: any;
+  constructor(
+    private _MyCurrencyListService: MyCurrencyListService,
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
-    this._MyCurrencyListService.curentList.subscribe(itemsList => this.myItems = itemsList ) 
+    this._MyCurrencyListService.currentUserData.subscribe(myUserData => this.myItems = myUserData);
+  }
+  ngAfterViewInit() {
+    console.log(this.myItems.userName);
   }
 
-  ngAfterViewInit() {
-    console.log(this.myCurrencyViewChild);
+  logOut(event) {
+    event.preventDefault();
+    this.authService.logout();
+    // this._router.navigate(['loggin']);
   }
+
 
 }
 

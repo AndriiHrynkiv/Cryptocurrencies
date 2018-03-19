@@ -10,11 +10,12 @@ import { MyCurrencyListService } from '../services/my-currency-list.service';
   styleUrls: ['./cryptocurrency-list.component.scss']
 })
 export class CryptocurrencyListComponent implements OnInit {
+
   cryptocurrency: Array<any>;
+  private _listFilter: string;
+  myUser: any;
   viewItems: Array<any>;
   viewItems1: Array<any>;
-  myItems: Array<any>;
-  private _listFilter: string;
 
   constructor(
     private _cryptocurrencyServices: cryptocurrencyServices,
@@ -29,26 +30,22 @@ export class CryptocurrencyListComponent implements OnInit {
     this.viewItems1 = this.listFilter ? this.performFilter(this.listFilter) : this.viewItems;
   }
 
-  performFilter(filterBy: string) {
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.viewItems.filter((item) =>
-    item.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
-  }
+
 
   ngOnInit() {
-    this._MyCurrencyListService.curentList.subscribe(itemsList => this.myItems = itemsList);
+    this._MyCurrencyListService.currentUserData.subscribe(myUserData => this.myUser = myUserData);
 
     this._cryptocurrencyServices.getCryptocurrencies()
       .subscribe(data => {
         this.cryptocurrency = data;
-
-        for (let n = 0; n < this.myItems.length; n++) {
+        for (let n = 0; n < this.myUser.userList.length; n++) {
           for (let m = 0; m < this.cryptocurrency.length; m++) {
-            if (this.myItems[n].id === this.cryptocurrency[m].id) {
+            if (this.myUser.userList[n].id === this.cryptocurrency[m].id) {
               this.cryptocurrency[m].isSelected = true;
             }
           }
         }
+        
         this.viewItems = this.cryptocurrency.slice(0, 12);
         this.viewItems1 = this.viewItems;
       });
@@ -56,9 +53,9 @@ export class CryptocurrencyListComponent implements OnInit {
 
   onSelectToMyCurrensy(item): void {
 
-    if (this.myItems.length > 0) {
+    if (this.myUser.userList.length > 0) {
       let ite: any;
-      for (ite of this.myItems) {
+      for (ite of this.myUser) {
         if (ite.name === item.name) {
           return;
         }
@@ -67,10 +64,10 @@ export class CryptocurrencyListComponent implements OnInit {
 
     event.stopPropagation();
     item.isSelected = true;
-    this.myItems.push(item);
-    localStorage.setItem('my_currency', JSON.stringify(this.myItems));
+    this.myUser.userList.push(item);
+    localStorage.setItem('my_currency', JSON.stringify(this.myUser));
+    console.log(this.myUser.userList);
   }
-
  
   onAddMoreItems(): void {
     let currentItemsArray: Array<object> = this.viewItems1;
@@ -78,6 +75,12 @@ export class CryptocurrencyListComponent implements OnInit {
     let newItemsArray = this.cryptocurrency.slice(lastIndex, lastIndex + 8);
     this.viewItems1 = currentItemsArray.concat(newItemsArray);
 
+  }
+
+  performFilter(filterBy: string) {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.cryptocurrency.filter((item) =>
+    item.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
 

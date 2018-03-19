@@ -8,11 +8,11 @@ import { MyCurrencyListService } from '../services/my-currency-list.service';
   styleUrls: ['./my-cryptocurrency.component.scss']
 })
 export class MyCryptocurrencyComponent implements OnInit {
-  myItems: Array<any>;
+  userData: any;
   constructor(private _MyCurrencyListService: MyCurrencyListService) { }
 
   ngOnInit() {
-    this._MyCurrencyListService.curentList.subscribe(itemsList => this.myItems = itemsList ) 
+    this._MyCurrencyListService.currentUserData.subscribe(myUserData => this.userData = myUserData ) 
   }
 
   onDeleteItem(item): void {
@@ -20,9 +20,9 @@ export class MyCryptocurrencyComponent implements OnInit {
     let index: number;
     item.isSelected = false;
     
-    index = this.myItems.indexOf(item);
+    index = this.userData.userList.indexOf(item);
     event.stopPropagation();
-    this.myItems.splice(index,1);
-    localStorage.setItem('my_currency', JSON.stringify(this.myItems));
+    this.userData.userList.splice(index,1);
+    localStorage.setItem('my_currency', JSON.stringify(this.userData));
   }
 }

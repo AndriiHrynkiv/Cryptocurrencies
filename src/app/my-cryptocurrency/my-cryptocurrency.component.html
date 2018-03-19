@@ -1,3 +1,3 @@
 <div class="items-collection">
-  <div class="single-item" *ngFor="let item of myItems"  [routerLink]="['/home/cryptocurrency-description', item.name]"><button (click)="onDeleteItem(item)" class="btn-select"></button><a>{{item.name}}</a></div>
+  <div class="single-item" *ngFor="let item of userData.userList"  [routerLink]="['/home/cryptocurrency-description', item.name]"><button (click)="onDeleteItem(item)" class="btn-select"></button><a>{{item.name}}</a></div>
 </div>
