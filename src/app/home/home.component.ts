@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     this._MyCurrencyListService.currentUserData.subscribe(myUserData => this.myItems = myUserData);
   }
   ngAfterViewInit() {
-    console.log(this.myItems.userName);
+    console.log("1");
   }
 
   logOut(event) {

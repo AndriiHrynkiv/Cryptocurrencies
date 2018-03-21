@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { cryptocurrencyServices } from './services/cryptocurrency.service';
 import { MyCurrencyListService } from './services/my-currency-list.service';
+import { AuthService } from './services/auth.service';
+
 
 
 @Component({

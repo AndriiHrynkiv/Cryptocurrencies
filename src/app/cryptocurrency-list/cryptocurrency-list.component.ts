@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { cryptocurrencyServices } from '../services/cryptocurrency.service';
 import { MyCurrencyListService } from '../services/my-currency-list.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class CryptocurrencyListComponent implements OnInit {
   constructor(
     private _cryptocurrencyServices: cryptocurrencyServices,
     private _MyCurrencyListService: MyCurrencyListService,
+    private authService: AuthService
   ) { }
 
    get listFilter(): string {
@@ -53,6 +55,8 @@ export class CryptocurrencyListComponent implements OnInit {
 
   onSelectToMyCurrensy(item): void {
 
+    this.authService.sentData (item)
+
     if (this.myUser.userList.length > 0) {
       let ite: any;
       for (ite of this.myUser) {
@@ -66,10 +70,12 @@ export class CryptocurrencyListComponent implements OnInit {
     item.isSelected = true;
     this.myUser.userList.push(item);
     localStorage.setItem('my_currency', JSON.stringify(this.myUser));
-    console.log(this.myUser.userList);
   }
  
   onAddMoreItems(): void {
+    
+    // this.authService.getData();
+
     let currentItemsArray: Array<object> = this.viewItems1;
     let lastIndex: number = currentItemsArray.length;
     let newItemsArray = this.cryptocurrency.slice(lastIndex, lastIndex + 8);
