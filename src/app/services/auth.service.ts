@@ -12,14 +12,13 @@ export class AuthService {
   private userData: firebase.User = null;
   private itemsCollection: any;
   private itemsDoc: any;
-  item: Observable<any[]>;
+  private item: Observable<any[]>;
 
   constructor(
     private _firebaseAuth: AngularFireAuth,
     private router: Router,
     private afs: AngularFirestore
   ) {
-    // this.itemsDoc = afs.doc('items/8OlYeny0CW1Z57y8EKez');
     this.itemsCollection = afs.collection<any>('users');
     this.item = this.itemsCollection.valueChanges();
 
@@ -40,7 +39,6 @@ export class AuthService {
 
   sentData(item: any) {
     this.itemsCollection.doc(item.userName).set(item);
-    // this.itemsDoc.update(item);
   }
   getUserData(currentUserData) {
     this.itemsCollection.doc(currentUserData.userName).valueChanges()
