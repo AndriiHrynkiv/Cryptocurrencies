@@ -25,20 +25,25 @@ export class LogginComponent implements OnInit {
     })
   }
 
-
   signInWithGoogle() {
   
     this.authService.signInWithGoogle()
+
       .then((res) => {
+
         this.userData = {};
         this.userData.userName = res.user.displayName;
         this.userData.userList = [];
-        this.authService.sentData(this.userData);
-        this.authService.getUserData (this.userData)
+
+        if (this.authService.getUserData(this.userData)) {
+          this.userData = this.authService.getUserData(this.userData);
+        } else {this.authService.sentData(this.userData)};
+
         this.router.navigate(['home']);
         localStorage.setItem(`my_currency`, JSON.stringify(this.userData));
       })
       .catch((err) => console.log(err));
+        
   }
 
   // signInWithFacebook() {

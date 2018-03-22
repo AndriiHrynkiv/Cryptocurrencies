@@ -55,7 +55,7 @@ export class CryptocurrencyListComponent implements OnInit {
 
   onSelectToMyCurrensy(item): void {
 
-    this.authService.sentData (item)
+    // this.authService.sentData (item)
 
     if (this.myUser.userList.length > 0) {
       let ite: any;
@@ -69,6 +69,7 @@ export class CryptocurrencyListComponent implements OnInit {
     event.stopPropagation();
     item.isSelected = true;
     this.myUser.userList.push(item);
+    this.authService.updateUserData(this.myUser);
     localStorage.setItem('my_currency', JSON.stringify(this.myUser));
   }
  

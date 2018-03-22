@@ -4,20 +4,23 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
+
 @Injectable()
+
 export class AuthService {
   private user: Observable<firebase.User>;
   private userData: firebase.User = null;
-  private itemsCollection: AngularFirestoreCollection<any>;
+  private itemsCollection: any;
+  private itemsDoc: any;
   item: Observable<any[]>;
-
 
   constructor(
     private _firebaseAuth: AngularFireAuth,
     private router: Router,
     private afs: AngularFirestore
   ) {
-    this.itemsCollection = afs.collection<any>('items');
+    // this.itemsDoc = afs.doc('items/8OlYeny0CW1Z57y8EKez');
+    this.itemsCollection = afs.collection<any>('users');
     this.item = this.itemsCollection.valueChanges();
 
 
@@ -34,13 +37,19 @@ export class AuthService {
       }
     )
   }
+
   sentData(item: any) {
-    this.itemsCollection.add(item);
+    this.itemsCollection.doc(item.userName).set(item);
+    // this.itemsDoc.update(item);
   }
   getUserData(currentUserData) {
-    this.itemsCollection.valueChanges()
-    .subscribe(res => {currentUserData = res} )
+    this.itemsCollection.doc(currentUserData.userName).valueChanges()
+    .subscribe(res => {return res})
   }
+  updateUserData (item) {
+    this.itemsCollection.doc(item.userName).set(item);
+  }
+
   signInWithGoogle() {
     return this._firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
